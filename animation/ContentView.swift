@@ -16,6 +16,7 @@ struct ContentView: View {
                 Text("Transition")
                     .font(.largeTitle)
                     .padding()
+                    .transition(.scale)
             }
         
         Button("Display Text On / Off") {
