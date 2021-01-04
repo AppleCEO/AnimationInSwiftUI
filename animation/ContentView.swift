@@ -14,8 +14,9 @@ struct ContentView: View {
     var body: some View {
         Image("cat")
             .blur(radius: blur ? 5 : 0)
-            .animation(.default)
+            .animation(nil)
             .scaleEffect(reduction ? 0.7 : 1)
+            .animation(.default)
             .onTapGesture {
                 self.blur.toggle()
                 self.reduction.toggle()
