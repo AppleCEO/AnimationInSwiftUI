@@ -14,12 +14,12 @@ struct ContentView: View {
     var body: some View {
         Image("cat")
             .blur(radius: blur ? 5 : 0)
+            .animation(.default)
             .scaleEffect(reduction ? 0.7 : 1)
             .onTapGesture {
                 self.blur.toggle()
                 self.reduction.toggle()
             }
-            .animation(.default, value: reduction)
     }
 }
 
