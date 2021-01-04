@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var blur: Bool = false
-    @State private var reduction: Bool = false
+    @State private var showText: Bool = false
     
     var body: some View {
-        Image("cat")
-            .blur(radius: blur ? 5 : 0)
-            .animation(Animation.default.speed(2).repeatCount(5, autoreverses: true))
-            .scaleEffect(reduction ? 0.7 : 1)
-            .animation(Animation.default.delay(1))
-            .onTapGesture {
-                self.blur.toggle()
-                self.reduction.toggle()
+        VStack {
+            if showText {
+                Text("Transition")
+                    .font(.largeTitle)
+                    .padding()
             }
+        
+        Button("Display Text On / Off") {
+            withAnimation {
+                self.showText.toggle()
+            }
+        }.font(.title)
     }
+}
 }
 
 struct ContentView_Previews: PreviewProvider {
