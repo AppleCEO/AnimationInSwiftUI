@@ -18,8 +18,8 @@ struct ContentView: View {
             .onTapGesture {
                 withAnimation {
                     self.blur.toggle()
-                    self.reduction.toggle()
                 }
+                self.reduction.toggle()
             }
     }
 }
