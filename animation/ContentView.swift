@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var blur: Bool = false
+    @State private var reduction: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Image("cat")
+            .blur(radius: blur ? 5 : 0)
+            .scaleEffect(reduction ? 0.7 : 1)
+            .onTapGesture {
+                self.blur.toggle()
+                self.reduction.toggle()
+            }
     }
 }
 
