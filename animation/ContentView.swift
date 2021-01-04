@@ -19,7 +19,7 @@ struct ContentView: View {
                 self.blur.toggle()
                 self.reduction.toggle()
             }
-            .animation(.default)
+            .animation(.default, value: reduction)
     }
 }
 
