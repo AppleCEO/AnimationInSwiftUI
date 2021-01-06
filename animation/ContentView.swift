@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("Transition")
                     .font(.largeTitle)
                     .padding()
-                    .transition(myTransition)
+                    .transition(.modifier(active: CustomScaleModifier(scale: 0), identity: CustomScaleModifier(scale: 1)))
             }
         
         Button("Display Text On / Off") {
@@ -34,9 +34,10 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-var myTransition: AnyTransition {
-    let insertion = AnyTransition.offset(x: 300, y: -300)
-        .combined(with: .scale)
-    let removal = AnyTransition.move(edge: .leading)
-    return .asymmetric(insertion: insertion, removal: removal)
+struct CustomScaleModifier: ViewModifier {
+    let scale: CGFloat
+    func body(content: Content) -> some View {
+        content
+            .scaleEffect(scale)
+    }
 }
