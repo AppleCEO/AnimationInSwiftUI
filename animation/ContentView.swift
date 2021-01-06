@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("Transition")
                     .font(.largeTitle)
                     .padding()
-                    .transition(.scale)
+                    .transition(AnyTransition.slide.combined(with: .scale))
             }
         
         Button("Display Text On / Off") {
